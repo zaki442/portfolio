@@ -19,6 +19,8 @@ const techs = [
   { name: "Cybersecurity", file: "letsencrypt.svg" },
 ];
 
+const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
 export default function About() {
   return (
     <section id="about" className="py-24 px-4">
@@ -64,7 +66,7 @@ export default function About() {
                   key={t.name}
                   className="inline-flex items-center gap-1.5 px-3 py-2 border border-zinc-700 rounded-md transition-colors hover:border-zinc-500"
                 >
-                  <img src={`/logos/${t.file}`} alt="" className="w-6 h-6 shrink-0" />
+                  <img src={`${basePath}/logos/${t.file}`} alt="" className="w-6 h-6 shrink-0" />
                   {t.name}
                 </span>
               ))}

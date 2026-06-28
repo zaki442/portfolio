@@ -82,6 +82,8 @@ const skillGroups: { label: string; skills: Skill[] }[] = [
   },
 ];
 
+const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
 export default function Skills() {
   return (
     <section id="skills" className="py-24 px-4 bg-zinc-900/50">
@@ -106,7 +108,7 @@ export default function Skills() {
                     key={s.name}
                     className="inline-flex items-center gap-1 px-2.5 py-1 text-xs border border-zinc-700 rounded-md text-muted hover:border-accent hover:text-accent transition-colors"
                   >
-                    {s.file && <img src={`/logos/${s.file}`} alt="" className="w-4 h-4 shrink-0" />}
+                    {s.file && <img src={`${basePath}/logos/${s.file}`} alt="" className="w-4 h-4 shrink-0" />}
                     {s.name}
                   </span>
                 ))}
