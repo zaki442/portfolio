@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "about" },
+  { href: "#skills", label: "skills" },
+  { href: "#experience", label: "experience" },
+  { href: "#projects", label: "projects" },
+  { href: "#contact", label: "contact" },
 ];
 
 export default function Navbar() {
@@ -22,36 +22,36 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-zinc-800" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <a href="#home" className="text-sm font-bold tracking-tight">
-          Zakaria <span className="text-accent">Abid</span>
+        <a href="#home" className="font-display text-sm font-bold tracking-tight">
+          Zakaria Abid
         </a>
 
-        <div className="hidden md:flex items-center gap-6 text-sm">
+        <div className="hidden md:flex items-center gap-6 font-mono text-xs">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-muted hover:text-white transition-colors"
+              className="text-muted hover:text-accent transition-colors"
             >
-              {l.label}
+              ~{l.label}
             </a>
           ))}
           <a
             href="cv_resume_v_eng.pdf"
             target="_blank"
-            className="bg-accent hover:bg-accent/90 text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors"
+            className="bg-accent hover:bg-accent/90 text-background px-3 py-1.5 rounded-md font-semibold transition-colors"
           >
-            Download CV
+            resume.pdf
           </a>
         </div>
 
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-foreground p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -66,25 +66,25 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800">
-          <div className="px-4 py-4 flex flex-col gap-3 text-sm">
+        <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border">
+          <div className="px-4 py-4 flex flex-col gap-3 font-mono text-xs">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-muted hover:text-white transition-colors"
+                className="text-muted hover:text-accent transition-colors"
               >
-                {l.label}
+                ~{l.label}
               </a>
             ))}
             <a
               href="cv_resume_v_eng.pdf"
               target="_blank"
               onClick={() => setOpen(false)}
-              className="bg-accent text-white px-3 py-1.5 rounded-md text-xs font-medium text-center transition-colors"
+              className="bg-accent text-background px-3 py-1.5 rounded-md font-semibold text-center transition-colors"
             >
-              Download CV
+              resume.pdf
             </a>
           </div>
         </div>

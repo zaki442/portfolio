@@ -1,32 +1,35 @@
-const certs = [
-  "Python for Everybody Specialization — University of Michigan (Coursera)",
-  "Django for Everybody Specialization — University of Michigan (Coursera)",
-  "TryHackMe Level 8 — Cybersecurity",
-  "TOEFL iBT 2026 — Udemy (In Progress)",
-  "OSINT Fundamentals — Udemy",
-  "Generative AI Learning Path — Google Cloud Skills Boost",
-  "DeepLearning.AI TensorFlow Developer — Coursera",
-  "IBM AI Engineering Professional Certificate — Coursera",
-  "Practical Deep Learning for Coders — fast.ai",
-  "Algorithms & Data Structures — Neetcode / LeetCode",
+import SectionHeading from "./section-heading";
+import { domainStyle, type Domain } from "@/lib/domains";
+
+const certs: { name: string; domain: Domain }[] = [
+  { name: "Python for Everybody Specialization — University of Michigan (Coursera)", domain: "build" },
+  { name: "Django for Everybody Specialization — University of Michigan (Coursera)", domain: "build" },
+  { name: "TryHackMe Level 8 — Cybersecurity", domain: "secure" },
+  { name: "TOEFL iBT 2026 — Udemy (In Progress)", domain: "build" },
+  { name: "OSINT Fundamentals — Udemy", domain: "secure" },
+  { name: "Generative AI Learning Path — Google Cloud Skills Boost", domain: "build" },
+  { name: "DeepLearning.AI TensorFlow Developer — Coursera", domain: "build" },
+  { name: "IBM AI Engineering Professional Certificate — Coursera", domain: "build" },
+  { name: "Practical Deep Learning for Coders — fast.ai", domain: "build" },
+  { name: "Algorithms & Data Structures — Neetcode / LeetCode", domain: "build" },
 ];
 
 export default function Certifications() {
   return (
-    <section className="py-24 px-4 bg-zinc-900/50">
+    <section className="py-24 px-4 bg-card/40">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">
-          Certifications &amp; <span className="text-accent">Learning</span>
-        </h2>
-        <div className="w-12 h-1 bg-accent mb-12" />
+        <SectionHeading path="certifications" title="Certifications &" highlight="Learning" />
 
         <div className="grid sm:grid-cols-2 gap-3">
-          {certs.map((c) => (
-            <div key={c} className="flex items-start gap-3 p-3 rounded-lg border border-zinc-800 bg-zinc-900/30">
-              <span className="text-accent mt-0.5 shrink-0">&#9656;</span>
-              <span className="text-sm text-muted leading-relaxed">{c}</span>
-            </div>
-          ))}
+          {certs.map((c) => {
+            const d = domainStyle[c.domain];
+            return (
+              <div key={c.name} className="flex items-start gap-3 p-3 rounded-md border border-border bg-card/30">
+                <span className={`mt-0.5 shrink-0 ${d.text}`}>&#9656;</span>
+                <span className="text-sm text-muted leading-relaxed">{c.name}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

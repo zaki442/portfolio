@@ -1,27 +1,63 @@
+const status = [
+  { label: "build", detail: "MERN · Angular · .NET · Spring Boot", dot: "bg-accent" },
+  { label: "secure", detail: "TryHackMe Lvl 8 · OSINT · Burp Suite", dot: "bg-signal" },
+  { label: "trade", detail: "Alpaca API · Backtrader · ccxt", dot: "bg-ticker" },
+];
+
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#e94560_0%,_transparent_50%)] opacity-20" />
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        <p className="text-accent font-mono text-sm mb-4 tracking-widest uppercase">Hello, I&apos;m</p>
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-          Zakaria <span className="text-accent">Abid</span>
+    <section id="home" className="min-h-screen flex items-center px-4 relative overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--color-foreground) 1px, transparent 1px), linear-gradient(to bottom, var(--color-foreground) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 55% at 50% 35%, black, transparent)",
+          maskImage: "radial-gradient(ellipse 70% 55% at 50% 35%, black, transparent)",
+        }}
+      />
+      <div className="max-w-3xl mx-auto relative z-10 py-32">
+        <p className="font-mono text-sm text-accent mb-5 tracking-wide">
+          <span className="text-muted">$</span> whoami
+        </p>
+        <h1 className="font-display text-5xl md:text-7xl font-bold mb-5 tracking-tight">
+          Zakaria Abid
         </h1>
-        <p className="text-xl md:text-2xl text-muted mb-8 font-light">
-          Full Stack Developer &mdash; Web, Python, AI &amp; Cybersecurity
+        <p className="text-xl md:text-2xl text-muted mb-10 font-light max-w-xl leading-snug">
+          Full-stack builder who ships production code, breaks it on purpose, and keeps an eye on the markets while it runs.
         </p>
-        <p className="text-muted max-w-xl mx-auto mb-10 text-sm leading-relaxed">
-          Certified Full Stack Developer with 5+ years of experience across the MERN stack, Angular, .NET, and Java Spring Boot. Built production applications for US-based clients, an algorithmic trading system, and a Moroccan community platform.
-        </p>
-        <div className="flex gap-4 justify-center flex-wrap">
-          <a href="#projects" className="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+
+        <div className="space-y-2.5 mb-10 font-mono text-sm">
+          {status.map((s) => (
+            <div key={s.label} className="flex items-center gap-3">
+              <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${s.dot}`} />
+              <span className="text-foreground w-14 shrink-0">{s.label}</span>
+              <span className="text-muted">{s.detail}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex gap-4 flex-wrap items-center">
+          <a
+            href="#projects"
+            className="bg-accent hover:bg-accent/90 text-background px-6 py-3 rounded-md font-semibold transition-colors"
+          >
             View Projects
           </a>
-          <a href="cv_resume_v_eng.pdf" target="_blank" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium border border-zinc-600 transition-colors">
+          <a
+            href="cv_resume_v_eng.pdf"
+            target="_blank"
+            className="border border-border hover:border-muted text-foreground px-6 py-3 rounded-md font-medium transition-colors"
+          >
             Download CV
           </a>
-          <a href="#contact" className="border border-zinc-700 hover:border-accent text-white px-6 py-3 rounded-lg font-medium transition-colors">
-            Contact Me
+          <a
+            href="#contact"
+            className="text-foreground hover:text-accent px-2 py-3 font-medium transition-colors"
+          >
+            Contact Me →
           </a>
         </div>
       </div>
