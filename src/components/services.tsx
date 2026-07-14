@@ -30,7 +30,7 @@ const services: { title: string; desc: string; domain: Domain; icon: React.React
       </svg>
     ),
     title: "Cybersecurity & OSINT",
-    desc: "TryHackMe Level 8 with experience in Kali Linux, Nmap, Wireshark, Burp Suite, and ethical hacking. Knowledge of XSS, SQLI, TCP/IP protocols, and OSINT fundamentals.",
+    desc: "TryHackMe Level 53 (Top 5%) with experience in Kali Linux, Nmap, Wireshark, Burp Suite, and ethical hacking. Knowledge of XSS, SQLI, TCP/IP protocols, and OSINT fundamentals.",
   },
 ];
 

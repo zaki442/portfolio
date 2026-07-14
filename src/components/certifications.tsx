@@ -4,7 +4,8 @@ import { domainStyle, type Domain } from "@/lib/domains";
 const certs: { name: string; domain: Domain }[] = [
   { name: "Python for Everybody Specialization — University of Michigan (Coursera)", domain: "build" },
   { name: "Django for Everybody Specialization — University of Michigan (Coursera)", domain: "build" },
-  { name: "TryHackMe Level 8 — Cybersecurity", domain: "secure" },
+  { name: "TryHackMe — Level 53, Top 5% (Cyber Crusader, 90 rooms completed)", domain: "secure" },
+  { name: "Kaggle — Python & programming coursework, Tabular Playground Series competitor", domain: "build" },
   { name: "TOEFL iBT 2026 — Udemy (In Progress)", domain: "build" },
   { name: "OSINT Fundamentals — Udemy", domain: "secure" },
   { name: "Generative AI Learning Path — Google Cloud Skills Boost", domain: "build" },

@@ -15,7 +15,7 @@ const interests: { title: string; desc: string; domain: Domain }[] = [
   {
     domain: "secure",
     title: "Cybersecurity & OSINT",
-    desc: "TryHackMe Level 8 with hands-on experience in Kali Linux, Nmap, Wireshark, and Burp Suite. Passionate about ethical hacking, network security, and open-source intelligence.",
+    desc: "TryHackMe Level 53 (Top 5%) with hands-on experience in Kali Linux, Nmap, Wireshark, and Burp Suite. Passionate about ethical hacking, network security, and open-source intelligence.",
   },
 ];
 

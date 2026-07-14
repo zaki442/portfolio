@@ -32,7 +32,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
             <p className="text-muted leading-relaxed text-sm">
-              Certified Full Stack Developer with 5+ years of experience across the MERN stack, Angular, .NET, and Java Spring Boot. Built production applications for US-based clients, an algorithmic trading system, and a Moroccan community platform. Self-taught programmer who started young, with growing expertise in AI/ML, cybersecurity (TryHackMe Lvl 8), and Python automation. Fluent in French and English.
+              Certified Full Stack Developer with 5+ years of experience across the MERN stack, Angular, .NET, and Java Spring Boot. Built production applications for US-based clients, an algorithmic trading system, and a Moroccan community platform. Self-taught programmer who started young, with growing expertise in AI/ML, cybersecurity (TryHackMe Lvl 53), and Python automation. Fluent in French and English.
             </p>
             <div className="mt-8">
               <h3 className="font-mono text-xs font-semibold text-foreground mb-3 tracking-wider uppercase">Contact</h3>

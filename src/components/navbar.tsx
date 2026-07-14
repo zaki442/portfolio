@@ -44,6 +44,7 @@ export default function Navbar() {
           <a
             href="cv_resume_v_eng.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="bg-accent hover:bg-accent/90 text-background px-3 py-1.5 rounded-md font-semibold transition-colors"
           >
             resume.pdf
@@ -81,6 +82,7 @@ export default function Navbar() {
             <a
               href="cv_resume_v_eng.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="bg-accent text-background px-3 py-1.5 rounded-md font-semibold text-center transition-colors"
             >

@@ -1,6 +1,6 @@
 const status = [
   { label: "build", detail: "MERN · Angular · .NET · Spring Boot", dot: "bg-accent" },
-  { label: "secure", detail: "TryHackMe Lvl 8 · OSINT · Burp Suite", dot: "bg-signal" },
+  { label: "secure", detail: "TryHackMe Lvl 53 · OSINT · Burp Suite", dot: "bg-signal" },
   { label: "trade", detail: "Alpaca API · Backtrader · ccxt", dot: "bg-ticker" },
 ];
 
@@ -49,6 +49,7 @@ export default function Hero() {
           <a
             href="cv_resume_v_eng.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="border border-border hover:border-muted text-foreground px-6 py-3 rounded-md font-medium transition-colors"
           >
             Download CV
