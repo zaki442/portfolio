@@ -71,7 +71,7 @@ const education = [
   },
   {
     degree: "Specialized Technician in IT Development (TSDI)",
-    school: "Hassan II University",
+    school: "TSDI",
     period: "2017 – 2018",
   },
   {
