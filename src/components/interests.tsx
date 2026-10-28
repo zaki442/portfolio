@@ -1,32 +1,19 @@
-import SectionHeading from "./section-heading";
-import { domainStyle, type Domain } from "@/lib/domains";
+"use client";
 
-const interests: { title: string; desc: string; domain: Domain }[] = [
-  {
-    domain: "trade",
-    title: "Algorithmic Trading",
-    desc: "Building automated trading systems with Python, Alpaca API, Backtrader, and ccxt for crypto market support. Applying moving-average crossover strategies and quantitative analysis.",
-  },
-  {
-    domain: "build",
-    title: "AI & Machine Learning",
-    desc: "Exploring TensorFlow, LangChain, and data science pipelines. Working on AI agents, marketing automation, and Kaggle competitions to deepen ML expertise.",
-  },
-  {
-    domain: "secure",
-    title: "Cybersecurity & OSINT",
-    desc: "TryHackMe Level 53 (Top 5%) with hands-on experience in Kali Linux, Nmap, Wireshark, and Burp Suite. Passionate about ethical hacking, network security, and open-source intelligence.",
-  },
-];
+import SectionHeading from "./section-heading";
+import { domainStyle } from "@/lib/domains";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Interests() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading path="interests" title="Interests &" highlight="Focus" />
+        <SectionHeading path="interests" title={t.interests.heading.title} highlight={t.interests.heading.highlight} />
 
         <div className="grid md:grid-cols-3 gap-6">
-          {interests.map((i) => {
+          {t.interests.items.map((i) => {
             const d = domainStyle[i.domain];
             return (
               <div

@@ -1,10 +1,11 @@
-const status = [
-  { label: "build", detail: "MERN · Angular · .NET · Spring Boot", dot: "bg-accent" },
-  { label: "secure", detail: "TryHackMe Lvl 53 · OSINT · Burp Suite", dot: "bg-signal" },
-  { label: "trade", detail: "Alpaca API · Backtrader · ccxt", dot: "bg-ticker" },
-];
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t, resumeUrl } = useLanguage();
+  const { status } = t.hero;
+
   return (
     <section id="home" className="min-h-screen flex items-center px-4 relative overflow-hidden">
       <div
@@ -26,7 +27,7 @@ export default function Hero() {
           Zakaria Abid
         </h1>
         <p className="text-xl md:text-2xl text-muted mb-10 font-light max-w-xl leading-snug">
-          Full-stack builder who ships production code, breaks it on purpose, and keeps an eye on the markets while it runs.
+          {t.hero.tagline}
         </p>
 
         <div className="space-y-2.5 mb-10 font-mono text-sm">
@@ -44,21 +45,21 @@ export default function Hero() {
             href="#projects"
             className="bg-accent hover:bg-accent/90 text-background px-6 py-3 rounded-md font-semibold transition-colors"
           >
-            View Projects
+            {t.hero.projectsBtn}
           </a>
           <a
-            href="cv_resume_v_eng.pdf"
+            href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="border border-border hover:border-muted text-foreground px-6 py-3 rounded-md font-medium transition-colors"
           >
-            Download CV
+            {t.hero.cvBtn}
           </a>
           <a
             href="#contact"
             className="text-foreground hover:text-accent px-2 py-3 font-medium transition-colors"
           >
-            Contact Me →
+            {t.hero.contactBtn}
           </a>
         </div>
       </div>

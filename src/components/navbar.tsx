@@ -1,16 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const links = [
-  { href: "#about", label: "about" },
-  { href: "#skills", label: "skills" },
-  { href: "#experience", label: "experience" },
-  { href: "#projects", label: "projects" },
-  { href: "#contact", label: "contact" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function Navbar() {
+  const { t, lang, toggleLang, resumeUrl } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,7 +26,7 @@ export default function Navbar() {
         </a>
 
         <div className="hidden md:flex items-center gap-6 font-mono text-xs">
-          {links.map((l) => (
+          {t.nav.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -41,35 +35,53 @@ export default function Navbar() {
               ~{l.label}
             </a>
           ))}
+          <button
+            type="button"
+            onClick={toggleLang}
+            aria-label={t.nav.toggleLabel}
+            className="px-2 py-1 rounded-md border border-border text-muted hover:text-accent hover:border-accent/50 transition-colors font-semibold"
+          >
+            {lang === "en" ? "FR" : "EN"}
+          </button>
           <a
-            href="cv_resume_v_eng.pdf"
+            href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-accent hover:bg-accent/90 text-background px-3 py-1.5 rounded-md font-semibold transition-colors"
           >
-            resume.pdf
+            {t.nav.resume}
           </a>
         </div>
 
-        <button
-          className="md:hidden text-foreground p-2"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLang}
+            aria-label={t.nav.toggleLabel}
+            className="px-2 py-1 rounded-md border border-border text-muted hover:text-accent hover:border-accent/50 transition-colors font-mono text-xs font-semibold"
+          >
+            {lang === "en" ? "FR" : "EN"}
+          </button>
+          <button
+            className="text-foreground p-2"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {open && (
         <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border">
           <div className="px-4 py-4 flex flex-col gap-3 font-mono text-xs">
-            {links.map((l) => (
+            {t.nav.links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -80,13 +92,13 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="cv_resume_v_eng.pdf"
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="bg-accent text-background px-3 py-1.5 rounded-md font-semibold text-center transition-colors"
             >
-              resume.pdf
+              {t.nav.resume}
             </a>
           </div>
         </div>

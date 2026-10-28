@@ -1,59 +1,19 @@
-import SectionHeading from "./section-heading";
-import { domainStyle, type Domain } from "@/lib/domains";
+"use client";
 
-const projects: { title: string; tech: string; desc: string; domain: Domain; link?: string; date?: string }[] = [
-  {
-    domain: "build",
-    title: "Waitlisapp",
-    tech: "Next.js, Supabase, Paddle, Resend",
-    desc: "SaaS for spinning up branded waitlist landing pages in minutes. Email capture with referral-based viral growth, an analytics dashboard, subscription billing via Paddle (merchant of record), and transactional email through Resend.",
-    link: "https://www.waitlisapp.com",
-    date: "Jul 2026",
-  },
-  {
-    domain: "build",
-    title: "Agile B Darija",
-    tech: "Next.js, React, Tailwind CSS, Python",
-    desc: "Community platform promoting agile practices in Morocco. Volunteer management, event/training sections, online donations (CIH & PayPal), secure admin dashboard, and a Python certificate generator.",
-    date: "Jan – Jul 2026",
-  },
-  {
-    domain: "build",
-    title: "MonStore",
-    tech: "Laravel, PHP, MySQL, Redis, Tailwind CSS, Alpine.js",
-    desc: "Fully containerized e-commerce platform with a mobile-first storefront, customer area, and admin panel. Dockerized stack with nginx, MySQL, Redis cache/queue, and Laravel Breeze auth.",
-    date: "Jun – Jul 2026",
-  },
-  {
-    domain: "trade",
-    title: "Trading-Factory",
-    tech: "Python, Alpaca API, Backtrader, ccxt",
-    desc: "Modular algorithmic trading system implementing moving-average crossover strategies. Extended with vectorbt, TA-Lib, QuantStats for backtesting and performance analysis.",
-    date: "Jun 2026",
-  },
-  {
-    domain: "build",
-    title: "Marketing AI Agent",
-    tech: "Python, AI, CRM, Lead Generation",
-    desc: "Autonomous marketing agent with modules for lead generation, CRM, content publishing, and analytics. Automated multi-platform engagement and image caching pipeline.",
-    date: "Jun 2026",
-  },
-  {
-    domain: "build",
-    title: "Onirique-Ride",
-    tech: "MERN Stack, Stripe API",
-    desc: "Luxury chauffeur-service ride-hailing app with in-app booking, trip history, and payment processing for a US-based client.",
-  },
-];
+import SectionHeading from "./section-heading";
+import { domainStyle } from "@/lib/domains";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading path="projects" title="Featured" highlight="Projects" />
+        <SectionHeading path="projects" title={t.projects.heading.title} highlight={t.projects.heading.highlight} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {projects.map((p) => {
+          {t.projects.items.map((p) => {
             const d = domainStyle[p.domain];
             const Card = p.link ? "a" : "div";
             return (

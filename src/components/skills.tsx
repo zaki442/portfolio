@@ -1,5 +1,8 @@
+"use client";
+
 import SectionHeading from "./section-heading";
 import { domainStyle, type Domain } from "@/lib/domains";
+import { useLanguage } from "@/lib/i18n";
 
 interface Skill {
   name: string
@@ -94,10 +97,12 @@ const skillGroups: { label: string; domain: Domain; skills: Skill[] }[] = [
 const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading path="skills" title="My" highlight="Skills" />
+        <SectionHeading path="skills" title={t.skills.heading.title} highlight={t.skills.heading.highlight} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillGroups.map((group) => {
@@ -108,7 +113,7 @@ export default function Skills() {
                 className="p-5 rounded-md border border-border bg-card/50"
               >
                 <h3 className={`text-xs font-mono font-semibold uppercase tracking-wider mb-3 ${d.text}`}>
-                  {group.label}
+                  {t.skills.groups[group.label] ?? group.label}
                 </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {group.skills.map((s) => (
